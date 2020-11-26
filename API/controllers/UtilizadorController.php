@@ -3,8 +3,9 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Utilizador;
+use app\models\User;
 use yii\data\ActiveDataProvider;
+use yii\filters\auth\QueryParamAuth;
 use yii\rest\ActiveController;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -16,7 +17,17 @@ use yii\helpers\Json;
  */
 class UtilizadorController extends ActiveController
 {
-    public $modelClass = 'app\models\Utilizador';
+    public $modelClass = 'app\models\User';
+
+    public function behaviors()
+    {
+        $behaviors = parent::behaviors();
+        $behaviors['authenticator'] = [
+            'class' => QueryParamAuth::className(),
+        ];
+        return $behaviors;
+    }
+
     public function actionEstado()
     {
         $climodel = new $this->modelClass;
