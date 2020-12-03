@@ -54,13 +54,15 @@ $config = [
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => 'utilizador',
+                    'controller' => ['utilizador','fornecedor-instalador'],
+                    'pluralize' => false,
                     'extraPatterns' => [
                         'POST total' => 'total',
                         'GET {id}/nome' =>'nome',
-                        'GET estado' =>'estado'
+                        'GET estado' =>'estado',
+                        'GET forne/{id}' => 'forne'
                     ],
-            ],
+        ],
         ],
         ],
     ],

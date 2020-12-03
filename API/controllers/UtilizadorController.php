@@ -28,6 +28,22 @@ class UtilizadorController extends ActiveController
         return $behaviors;
     }
 
+    public function actionTotal ()
+    {
+        $db = new $this->modelClass;
+        $ret = $db::find()->all();
+        return ['total' => count($ret)];
+    }
+
+    public function actionNome ($id)
+    {
+        $db = new $this->modelClass;
+        $ret = $db::find()->where("id=" . $id)->one();
+        if ($ret)
+            return ['id' => $id, 'Nome' => $ret->Nome];
+        return ['id' => $id, 'Nome' => "null"];
+    }
+
     public function actionEstado()
     {
         $climodel = new $this->modelClass;
