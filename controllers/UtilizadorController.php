@@ -20,36 +20,6 @@ use yii\helpers\Json;
 class UtilizadorController extends ActiveController
 {
     public $modelClass = 'app\models\User';
-    public function behaviors()
-    {
-       /* $behaviors = parent::behaviors();
-        $behavior['authenticator'] = [
-            'class' => QueryParamAuth::className(),
-        ];
-        $behaviors['access'] = [
-            'class' => AccessControl::className(),
-            'rules' => [
-                // allow authenticated users
-                [
-                    'allow' => true,
-                    'actions' => [''],
-                    'roles' => ['?'],
-                ],
-                [
-                    'allow' => true,
-                    'roles' => ['@'],
-                ],
-                // everything else is denied
-            ],
-        ];
-        return $behaviors;*/
-        $behaviors = parent::behaviors();
-        $behaviors['authenticator'] = [
-            'class' => QueryParamAuth::className(),
-        ];
-        return $behaviors;
-    }
-
 
     public function actionTotal ()
     {
@@ -61,7 +31,6 @@ class UtilizadorController extends ActiveController
 
     public function actionNome ($id)
     {
-        $this->behaviors()->unset();
         $climodel = new $this->modelClass;
         $ret = $climodel::find()->where("id=" . $id)->one();
         if ($ret)

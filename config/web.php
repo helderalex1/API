@@ -54,15 +54,20 @@ $config = [
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => ['utilizador','fornecedor-instalador'],
+                    'controller' => ['utilizador','fornecedor-instalador','produto'],
                     'pluralize' => false,
                     'extraPatterns' => [
-                        'POST total' => 'total',
+                        'GET total' => 'total',
                         'GET nome/{id}' =>'nome',
                         'GET estado' =>'estado',
+                        'GET conhecerforne/{id}' => 'conhecerforne',
+                        'GET conhecerinsta/{id}' => 'conhecerinsta',
                         'GET forne/{id}' => 'forne',
-                        'GET login/{username}{password_hash}' => 'login'
+                        'GET insta/{id}' => 'insta',
+                        'GET login/{username}{password_hash}' => 'login',
+                        'GET produtoforne/{id}' => 'produtoforne'
                     ],
+
         ],
         ],
         ],
