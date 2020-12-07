@@ -54,10 +54,9 @@ $config = [
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => ['utilizador','fornecedor-instalador','produto'],
+                    'controller' => ['utilizador','fornecedor-instalador','produto','utilizador-token','Categoria-Token','Categoria'],
                     'pluralize' => false,
                     'extraPatterns' => [
-                        'GET total' => 'total',
                         'GET nome/{id}' =>'nome',
                         'GET estado' =>'estado',
                         'GET conhecerforne/{id}' => 'conhecerforne',
@@ -65,7 +64,9 @@ $config = [
                         'GET forne/{id}' => 'forne',
                         'GET insta/{id}' => 'insta',
                         'GET login/{username}{password_hash}' => 'login',
-                        'GET produtoforne/{id}' => 'produtoforne'
+                        'GET produtoforne/{id}' => 'produtoforne',
+                        'GET total' => 'total',
+                        'GET Categoria' =>'Categoria'
                     ],
 
         ],

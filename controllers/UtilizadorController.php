@@ -21,32 +21,7 @@ class UtilizadorController extends ActiveController
 {
     public $modelClass = 'app\models\User';
 
-    public function actionTotal ()
-    {
 
-        $climodel = new $this->modelClass;
-        $ret = $climodel::find()->all();
-        return ['total' => count($ret)];
-    }
-
-    public function actionNome ($id)
-    {
-        $climodel = new $this->modelClass;
-        $ret = $climodel::find()->where("id=" . $id)->one();
-        if ($ret)
-            return ['id' => $id, 'Nome' => $ret->Nome];
-        return ['id' => $id, 'Nome' => "null"];
-    }
-
-    public function actionUserPendentes()
-    {
-        $climodel = new $this->modelClass;
-
-        $rec = $climodel::find()->where("Status=".'9')->asArrray()->all();
-        if($rec)
-            return Json::encode($rec);
-        return ['null'];
-    }
 
     public function actionLogin($username, $password){
         $climodel = new $this->modelClass;
